@@ -82,20 +82,7 @@
           // Wait for it to reset itself
           setTimeout(function() {
             // Now tell it to write data on the current light level to Bluetooth 10 times a second
-            connection.write("analogRead(D30)",
-              function() { log("Ready!"); });
-           connection = c;
-           // Handle the data we get back, and call 'onLine'
-           // whenever we get a line
-           var buf = "";
-           connection.on("data", function(d) {
-             buf += d;
-             var i = buf.indexOf("\n");
-             while (i>=0) {
-               onLine(buf.substr(0,i));
-               buf = buf.substr(i+1);
-               i = buf.indexOf("\n");
-             }
+            connection.write("\x10setWatch(function(){Bluetooth.println('Pressed');},BTN,{repeat:true,debounce:50,edge:'rising'});\n"
           }, 1500);
         });
       });
