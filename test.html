@@ -51,7 +51,7 @@
 
     // When clicked, connect or disconnect
     var connection;
-    button.addEventListener("click", function() {
+    button.addEventListener("click touchstart", function() {
       if (connection) {
         log("Closing connection");
         connection.close();
