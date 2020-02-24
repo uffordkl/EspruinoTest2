@@ -14,7 +14,6 @@
   <h1>Clamp Status</h1>
   <h2>Neonatal Intensive Care Unit</h2>
   <h2>Monroe Carell Jr. Hospital, Vanderbilt Medical Center</h2>
-  <h3>"click touchstart" instead of click, try for better mobile compatability</h3>
   <body>
 
    <div class="square"></div>
@@ -52,7 +51,7 @@
 
     // When clicked, connect or disconnect
     var connection;
-    button.addEventListener("click touchstart", function() {
+    button.addEventListener("click", function() {
       if (connection) {
         log("Closing connection");
         connection.close();
